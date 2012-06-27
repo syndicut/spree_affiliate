@@ -25,7 +25,7 @@
   </tr>
   <tr>
     <th scope="row"><%= t("recipient_credit_product_property") %>:</th>
-    <td><%= Property.find(Spree::Config[:recipient_credit_product_property]).name %></td>
+    <td><%= Property.find(Spree::Config[:recipient_credit_product_property].to_i).name %></td>
   </tr>
 </table>
 
