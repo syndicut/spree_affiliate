@@ -4,7 +4,7 @@ User.class_eval do
   has_one :affiliate_partner, :class_name => "Affiliate", :foreign_key => "user_id"
 
   def partner
-    affiliate_partner.partner
+    affiliate_partner.partner if affiliate_partner
   end
   
   def ref_id
