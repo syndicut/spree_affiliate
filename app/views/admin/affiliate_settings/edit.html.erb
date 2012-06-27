@@ -31,7 +31,9 @@
                   'preferences[recipient_credit_product_property', 
                   options_from_collection_for_select(
                                       Property.all,
-                                      Spree::Config[:recipient_credit_product_property].to_int),
+                                      'id',
+                                      'name',
+                                      Spree::Config[:recipient_credit_product_property].to_i),
                   :include_blank => true
                 ) %>
   </p>
