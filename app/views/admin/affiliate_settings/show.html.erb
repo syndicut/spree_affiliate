@@ -21,11 +21,14 @@
   </tr>
   <tr>
     <th scope="row"><%= t("sender_credit_percent") %>:</th>
-    <td><%= number_to_percentage Spree::Config[:sender_credit_percent] %></td>
+    <td><%= number_to_percentage Spree::Config[:sender_credit_percent] if not Spree::Config[:sender_credit_percent].empty? %></td>
   </tr>
   <tr>
     <th scope="row"><%= t("recipient_credit_product_property") %>:</th>
-    <td><%= Property.find(Spree::Config[:recipient_credit_product_property].to_i).name %></td>
+    <td>
+      <% property = Property.find_by_id(Spree::Config[:recipient_credit_product_property].to_i) %>
+      <%= property.name if property %>
+    </td>
   </tr>
 </table>
 
