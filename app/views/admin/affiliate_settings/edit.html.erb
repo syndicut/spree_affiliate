@@ -26,7 +26,6 @@
   </p>
   <p>
   <label><%= t('recipient_credit_product_property') %></label>
-  <%= text_field_tag('preferences[recipient_credit_product_property]', Spree::Config[:recipient_credit_product_property])%>
   <%= select_tag(
                   'preferences[recipient_credit_product_property', 
                   options_from_collection_for_select(
