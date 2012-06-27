@@ -10,12 +10,12 @@ CheckoutController.class_eval do
       sender = current_user.partner
 
       #create credit (if required)
-      create_affiliate_credits(sender, current_user, first_order?(current_user) ? "first purchase" : "purchase", @order)
+      create_affiliate_credits(sender, current_user, first_order?(current_user) ? "purchase" : "subsequent_purchase", @order)
     end
   end
 
   def first_order?(user)
     user.orders.where(:state => 'complete').count == 1
   end
-  
+
 end
