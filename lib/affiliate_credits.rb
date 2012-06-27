@@ -22,8 +22,8 @@ module AffiliateCredits
 
     #check subsequent purchase
     if event == 'subsequent_purchase' and sender_credit_percent = Spree::Config["sender_credit_percent"] and property = Property.find_by_id(Spree::Config[:recipient_credit_product_property].to_i)
-      for variant in order.line_items
-        if recipient_credit_amount = variant.bonus_credit(property) and recipient_credit_amount > 0
+      for product in order.products
+        if recipient_credit_amount = product.bonus_credit(property) and recipient_credit_amount > 0
            credit = StoreCredit.create(:amount => recipient_credit_amount,
                          :remaining_amount => recipient_credit_amount,
                          :reason => "Affiliate: #{event}", :user => recipient)
