@@ -19,6 +19,14 @@
     <th scope="row"><%= t("recipient_credit_on_purchase_amount") %>:</th>
     <td><%= number_to_currency Spree::Config[:recipient_credit_on_purchase_amount] %></td>
   </tr>
+  <tr>
+    <th scope="row"><%= t("sender_credit_percent") %>:</th>
+    <td><%= number_to_percentage Spree::Config[:sender_credit_percent] %></td>
+  </tr>
+  <tr>
+    <th scope="row"><%= t("recipient_credit_product_property") %>:</th>
+    <td><%= Property.find(Spree::Config[:recipient_credit_product_property]).name %></td>
+  </tr>
 </table>
 
 <p><%= link_to_with_icon 'edit', t("edit"), edit_admin_affiliate_settings_path %></p>
