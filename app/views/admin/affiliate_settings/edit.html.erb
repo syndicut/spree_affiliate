@@ -20,6 +20,21 @@
 	<label><%= t('recipient_credit_on_purchase_amount') %></label>
 	<%= text_field_tag('preferences[recipient_credit_on_purchase_amount]', Spree::Config[:recipient_credit_on_purchase_amount])%>
   </p>
+  <p>
+  <label><%= t('sender_credit_percent') %></label>
+  <%= text_field_tag('preferences[sender_credit_percent]', Spree::Config[:sender_credit_percent])%>
+  </p>
+  <p>
+  <label><%= t('recipient_credit_product_property') %></label>
+  <%= text_field_tag('preferences[recipient_credit_product_property]', Spree::Config[:recipient_credit_product_property])%>
+  <%= select_tag(
+                  'preferences[recipient_credit_product_property', 
+                  options_from_collection_for_select(
+                                      Property.all,
+                                      Spree::Config[:recipient_credit_product_property].to_int),
+                  :include_blank => true
+                ) %>
+  </p>
 
   <p class="form-buttons">
     <%= button t('update') %>
