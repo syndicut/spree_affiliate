@@ -44,7 +44,7 @@ module AffiliateCredits
                            :remaining_amount => partner_credit_amount,
                            :reason => "2-nd level affiliate: #{event}", :user => sender.partner)
 
-              log_event recipient.affiliate_partner, sender, credit, event
+              log_event recipient.affiliate_partner, sender.partner, credit, event
             end
           end
         end
