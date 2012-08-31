@@ -17,5 +17,6 @@ Product.class_eval do
       self.credit_property_id
       )
     product_property.value = value.to_f
+    product_property.save!
   end
 end
