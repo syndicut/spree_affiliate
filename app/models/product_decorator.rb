@@ -3,6 +3,7 @@ Product.class_eval do
 
   def credit_property_id
     Spree::Config[:recipient_credit_product_property].to_i
+  end
   def bonus_credit
     product_property = ProductProperty.find_by_product_id_and_property_id(id, self.credit_property_id)
     if product_property
